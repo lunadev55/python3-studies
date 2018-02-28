@@ -20,7 +20,16 @@ with open('example.csv') as csvfile:
 	print(colors)
 	print(dates)
 
-	whatColor = input('What color do you wish to know the date of?\n')
-	coldex = colors.index(whatColor.lower())
+	try:
+		whatColor = input('What color do you wish to know the date of?\n')
+		
+		if whatColor in colors:			
+			coldex = colors.index(whatColor.lower())
+			print('the date of the color %s is %s' % (whatColor, dates[coldex]))
+		else:
+			print('Color not found, or is not a color!')
 
-	print('the date of the color %s is %s' % (whatColor, dates[coldex]))
+	except Exception as e:
+		print(e)
+
+	print('continuing')
